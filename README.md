@@ -3,7 +3,8 @@ Sistema para criar personagem, raças, equipamentos e poderes para rpg.
   
 ## Rotas  
   
-#### Rest  
+#### RestAPI  
+/api/power
 
 ## Interfaces  
 
