@@ -1,0 +1,11 @@
+.title-center{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.font-toolbar{
+    font-size: 40px;
+    font-family:'Times New Roman', Times, serif;
+    height: 50px;
+}
