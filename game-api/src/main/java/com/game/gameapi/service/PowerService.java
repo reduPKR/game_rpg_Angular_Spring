@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PowerService {
     @Autowired
@@ -14,5 +16,13 @@ public class PowerService {
 
     public Page<Power> findAll(Pageable pageable){
         return repository.findAll(pageable);
+    }
+
+    public Power findByID(long id){
+        Optional<Power> optional = repository.findById(id);
+        if(optional.isPresent()){
+            return optional.get();
+        }
+        return null;
     }
 }

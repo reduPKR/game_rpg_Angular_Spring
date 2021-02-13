@@ -9,10 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -28,7 +25,18 @@ public class PowerController {
         if(powerPage.isEmpty()){
             return new ResponseEntity<Page<Power>>(powerPage,HttpStatus.NOT_FOUND);
         }else{
-            return new ResponseEntity<Page<Power>>(powerPage,HttpStatus.OK);
+            return new ResponseEntity<Page<Power>>(powerPage, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Power> findByID(@PathVariable("id") long id){
+        Power power = service.findByID(id);
+
+        if(power == null){
+            return new ResponseEntity<Power>(power, HttpStatus.NOT_FOUND);
+        }else{
+            return new ResponseEntity<Power>(power, HttpStatus.OK);
         }
     }
 }
