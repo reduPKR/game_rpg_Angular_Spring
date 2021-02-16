@@ -12,11 +12,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 
 import { HomeComponent } from './views/home/home.component';
+import { CharacterComponent } from './views/character/character.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,
