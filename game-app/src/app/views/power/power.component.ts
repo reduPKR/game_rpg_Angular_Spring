@@ -31,7 +31,7 @@ export class PowerComponent implements OnInit {
 
   newPower(){
     const dialogRef = this.dialog.open(NewPowerComponent, {
-      minWidth: '500px',
+      minWidth: '800px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -9,7 +9,8 @@ import { PowerService } from 'src/app/shared/service/power.service';
   styleUrls: ['./new-power.component.css']
 })
 export class NewPowerComponent implements OnInit {
-  public newPowerForm: any;
+  public powerForm: any;
+  public points: number = 50;
 
   constructor(
     public dialogRef: MatDialogRef<NewPowerComponent>,
@@ -22,21 +23,39 @@ export class NewPowerComponent implements OnInit {
   }
 
   initializerForm(){
-    this.newPowerForm = this.fb.group({
+    this.powerForm = this.fb.group({
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
       icon_name: ['', [Validators.required]],
-      physical_attack: ['', [Validators.required]],
-      magic_attack: ['', [Validators.required]],
-      physical_defense: ['', [Validators.required]],
-      magic_defense: ['', [Validators.required]],
-      stamina_consumption: ['', [Validators.required]],
-      magic_consumption: ['', [Validators.required]],
     });
+
+    this.powerForm.physical_attack = 1;
+    this.powerForm.magic_attack = 1;
+    this.powerForm.physical_defense = 1;
+    this.powerForm.magic_defense = 1;
+    this.powerForm.stamina_consumption = 1;
+    this.powerForm.magic_consumption = 1;
   }
 
   close(){
     this.dialogRef.close(true);
-    this.newPowerForm.reset();
+    this.powerForm.reset();
   }
+
+  physicalAttackMinus(){
+    if(this.powerForm.physical_attack > 1){
+      this.powerForm.physical_attack--;
+      this.points++;
+    }
+  }
+
+  physicalAttackPlus(){
+    if(this.points > 0){
+      this.powerForm.physical_attack++;
+      this.points--;
+    }
+  }
+
+ 
+
 }

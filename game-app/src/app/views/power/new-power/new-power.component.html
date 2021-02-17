@@ -1,15 +1,40 @@
 <div class="titulo">
-    <h1 mat-dialog-title>Cadastrar novo poder</h1>
+    <h1 mat-dialog-title>Cadastrar novo poder ou habilidade</h1>
 </div>
 <div mat-dialog-content>
-    <form class="form-todo" [formGroup]="powerForm">
-        <mat-form-field class="form-full-width">
-            <label>Nome</label>
-            <input placeholder="" formControlName="name" name="name">
-        </mat-form-field>
+    <form class="form-todo" [formGroup]="powerForm">   
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+            <input type="text" class="form-control" formControlName="name" name="name">
+        </div>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Icone</span>
+            <input type="text" class="form-control" formControlName="icon_name" name="icon_name">
+        </div>
+
+        <div class="mb-3 points-register">
+            <label class="form-label">Descrição da habilidade</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" name="description"></textarea>
+        </div>
     </form>
+
+    <div class="points-register">
+        <label style="margin-left: 40%; margin-bottom: 10px;">Pontos disponiveis: {{points}}</label>
+        <div class="mb-3">
+            <label>Pontos de ataque fisico: </label>
+            <button (click)="physicalAttackMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{powerForm.physical_attack}}
+            <button (click)="physicalAttackPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+    </div>
+
 </div>
 <div mat-dialog-actions>
-    <button style="width: 45%;" mat-button (click)="close()">Cancelar</button>
-    <button style="width: 45%;" mat-raised-button color="primary" (click)='addPower()'>Adicionar</button>
+    <button style="width: 47%; background-color: #f77e0c;" mat-button (click)="close()">Cancelar</button>
+    <button style="width: 47%;" mat-raised-button color="primary" (click)='addPower()'>Adicionar</button>
 </div>
