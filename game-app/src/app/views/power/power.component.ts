@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Power } from 'src/app/shared/model/power.model';
 import { PowerService } from 'src/app/shared/service/power.service';
+import { NewPowerComponent } from './new-power/new-power.component';
 
 @Component({
   selector: 'app-power',
@@ -11,7 +13,8 @@ export class PowerComponent implements OnInit {
   powers_list: Power[] = [];
 
   constructor(
-    public service: PowerService
+    public service: PowerService,
+    public dialog: MatDialog 
   ) { }
 
   ngOnInit(): void {
@@ -24,5 +27,15 @@ export class PowerComponent implements OnInit {
         this.powers_list = data.content;
       }
     )
+  }
+
+  newPower(){
+    const dialogRef = this.dialog.open(NewPowerComponent, {
+      minWidth: '500px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Bye');
+    });
   }
 }

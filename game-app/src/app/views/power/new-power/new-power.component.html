@@ -1,0 +1,15 @@
+<div class="titulo">
+    <h1 mat-dialog-title>Cadastrar novo poder</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-todo" [formGroup]="powerForm">
+        <mat-form-field class="form-full-width">
+            <label>Nome</label>
+            <input placeholder="" formControlName="name" name="name">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button style="width: 45%;" mat-button (click)="close()">Cancelar</button>
+    <button style="width: 45%;" mat-raised-button color="primary" (click)='addPower()'>Adicionar</button>
+</div>
