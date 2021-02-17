@@ -38,4 +38,9 @@ export class PowerComponent implements OnInit {
       console.log('Bye');
     });
   }
+
+  delete(id: any){
+    this.service.delete(id).subscribe(result => {});
+    window.location.reload();
+  }
 }

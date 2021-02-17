@@ -19,4 +19,8 @@ export class PowerService {
   public getAll(): Observable<responsePageable> {
     return this.httpClient.get<responsePageable>(this.apiUrl);
   }
+
+  public delete(id: any){
+    return this.httpClient.delete<any>(this.apiUrl+"/"+id);
+  }
 }
