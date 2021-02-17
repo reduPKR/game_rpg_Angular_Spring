@@ -3,30 +3,16 @@
         {{title}}
     </span>
 </mat-toolbar>
-<mat-grid-list cols="6" rowHeight="1:3">
-    <mat-grid-tile colspan="1" class="menu-grid">
-        <mat-list role="list">
-            <mat-list-item>
-                <a href="">Home</a>
-            </mat-list-item>
-            <mat-list-item>
-                <a (click)="goToCharacter()">Personagens</a>
-            </mat-list-item>
-            <mat-list-item>
-                <a (click)="goToPower()">Poderes</a>
-            </mat-list-item>
-            <mat-list-item>
-                <a href="#">Raças</a>
-            </mat-list-item>
-            <mat-list-item>
-                <a href="#">Equipamentos</a>
-            </mat-list-item>
-            <mat-list-item>
-                <a href="#">Batalha</a>
-            </mat-list-item>
-        </mat-list>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="5">
+<div class="row" style="height: 91%;">
+    <div class="col-md-2 menu">
+        <button (click)="goToHome()">Home</button>
+        <button (click)="goToCharacter()">Personagens</button>
+        <button (click)="goToPower()">Poderes</button>
+        <button href="#">Raças</button>
+        <button href="#">Equipamentos</button>
+        <button href="#">Batalha</button>
+    </div>
+    <div class="col-md-9">
         <router-outlet></router-outlet>
-    </mat-grid-tile>
-</mat-grid-list>
+    </div>
+</div>

@@ -12,14 +12,14 @@
     height: 50px;
 }
 
-.menu-grid{
+.menu{
     background-color: #ededed;
 }
 
-a {
+button {
     display: block;
     width: 160px;
-    height: 20px;
+    height: 50px;
     padding: 10px 5px;
     background-color: #e45514;
     color: #dddddd;
@@ -28,27 +28,15 @@ a {
     text-align: center;
     font-weight: bold;
     font-family: Arial;
+    margin-bottom: 20px;
+    margin-left: 5%;
 }
 
-a:hover {
-    display: block;
-    width: 160px;
-    height: 20px;
-    padding: 10px 5px;
+button:hover {
+    width: 200px;
+    height: 60px;
     background-color: #dddddd;
     color: #e45514;
     border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    font-family: Arial;
-}
-
-mat-list{
-    position: absolute;
-    top: 20px;
-}
-
-mat-list-item {
-   margin-top: 3px;
+    margin-left: 5%;
 }
