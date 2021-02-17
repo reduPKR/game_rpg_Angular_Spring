@@ -39,4 +39,9 @@ public class PowerController {
             return new ResponseEntity<Power>(power, HttpStatus.OK);
         }
     }
+
+    @DeleteMapping("/id")
+    public void delete(@PathVariable("id") long id){
+        service.delete(id);
+    }
 }

@@ -25,4 +25,8 @@ public class PowerService {
         }
         return null;
     }
+
+    public void delete(long id) {
+        repository.deleteById(id);
+    }
 }
