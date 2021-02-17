@@ -15,12 +15,23 @@
 
         <div class="mb-3 points-register">
             <label class="form-label">Descrição da habilidade</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" name="description"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" formControlName="description" name="description"></textarea>
         </div>
     </form>
 
     <div class="points-register">
         <label style="margin-left: 40%; margin-bottom: 10px;">Pontos disponiveis: {{points}}</label>
+        <div class="row">
+            <div class="col col-4">
+                <label>Magia usada: {{this.powerForm.magic_consumption}}</label>
+            </div>
+            <div class="col col-4">
+                <label>Stamina usada: {{this.powerForm.stamina_consumption}}</label>
+            </div>
+            <div class="col col-4">
+                <label>Tempo desativado: {{this.powerForm.shifts_off}}</label>
+            </div>
+        </div>
         <div class="mb-3">
             <label>Pontos de ataque fisico: </label>
             <button (click)="physicalAttackMinus()" class="points-button">
@@ -31,10 +42,54 @@
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
         </div>
+
+        <div class="mb-3">
+            <label>Pontos de ataque magico: </label>
+            <button (click)="magicAttackMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{powerForm.magic_attack}}
+            <button (click)="magicAttackPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Pontos de defesa fisico: </label>
+            <button (click)="physicalDefenseMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{powerForm.physical_defense}}
+            <button (click)="physicalDefensePlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Pontos de defesa magica: </label>
+            <button (click)="magicDefenseMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{powerForm.magic_defense}}
+            <button (click)="magicDefensePlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Turnos de efeito ativo: </label>
+            <button (click)="durationShiftsMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{powerForm.duration_shifts}}
+            <button (click)="durationShiftsPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
     </div>
 
 </div>
 <div mat-dialog-actions>
     <button style="width: 47%; background-color: #f77e0c;" mat-button (click)="close()">Cancelar</button>
-    <button style="width: 47%;" mat-raised-button color="primary" (click)='addPower()'>Adicionar</button>
+    <button style="width: 47%;" mat-raised-button color="primary">Adicionar</button>
 </div>
