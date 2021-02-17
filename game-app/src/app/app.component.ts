@@ -17,6 +17,11 @@ export class AppComponent{
     this.router.navigate([""]);
   }
 
+  goToPower(){
+    this.title = "Poderes";
+    this.router.navigate(["power"]);
+  }
+
   goToCharacter(){
     this.title = "Personagem";
     this.router.navigate(["character"]);
