@@ -40,7 +40,7 @@ public class PowerController {
         }
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") long id){
         service.delete(id);
     }

@@ -1,5 +1,5 @@
 <div class="padding_table">
-    <table *ngIf="powers_list">
+    <table *ngIf="powers_list.length > 0">
         <thead>
             <th >Nome</th>
             <th >Opções</th>
@@ -16,6 +16,9 @@
             </td>
         </tr>
     </table>
+    <div *ngIf="powers_list.length == 0">
+        <label class="text">Nenhum poder ou habilidade cadastrado</label>
+    </div>
     <button mat-fab class="btn-add" (click)="newPower()">
         <mat-icon mat-icon>add</mat-icon>
     </button>

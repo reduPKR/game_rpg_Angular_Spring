@@ -21,6 +21,10 @@ export class PowerService {
   }
 
   public delete(id: any){
+    console.log("2 -> "+id);
+    console.log("3 -> "+this.apiUrl+"/"+id);
     return this.httpClient.delete<any>(this.apiUrl+"/"+id);
   }
 }
+
+

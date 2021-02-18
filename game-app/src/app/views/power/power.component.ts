@@ -40,6 +40,7 @@ export class PowerComponent implements OnInit {
   }
 
   delete(id: any){
+    console.log("1 -> "+id)
     this.service.delete(id).subscribe(result => {});
     window.location.reload();
   }
