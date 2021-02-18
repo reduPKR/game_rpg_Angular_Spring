@@ -44,4 +44,9 @@ public class PowerController {
     public void delete(@PathVariable("id") long id){
         service.delete(id);
     }
+
+    @PostMapping
+    public void post(){
+        
+    }
 }

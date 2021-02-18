@@ -147,4 +147,11 @@ export class NewPowerComponent implements OnInit {
     (10 * (this.powerForm.magic_attack +  this.powerForm.magic_defense) +
     (this.powerForm.physical_attack + this.powerForm.physical_defense));
   }
+
+  save(){
+    this.service.post(this.powerForm.value).subscribe(result => {});
+    this.dialogRef.close(true);
+    this.powerForm.reset();
+    window.location.reload();
+  }
 }
