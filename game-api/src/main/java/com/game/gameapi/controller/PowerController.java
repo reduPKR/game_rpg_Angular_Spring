@@ -1,5 +1,6 @@
 package com.game.gameapi.controller;
 
+import com.game.gameapi.dto.PowerDTO;
 import com.game.gameapi.models.Power;
 import com.game.gameapi.service.PowerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -46,7 +49,8 @@ public class PowerController {
     }
 
     @PostMapping
-    public void post(){
-        
+    public ResponseEntity<Page<Power>> post(@RequestBody @Valid PowerDTO powerDTO){
+        Page<Power> powerPage = service.save(powerDTO);
+        return new ResponseEntity<Page<Power>>(powerPage, HttpStatus.CREATED);
     }
 }

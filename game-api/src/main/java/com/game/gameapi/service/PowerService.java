@@ -1,5 +1,7 @@
 package com.game.gameapi.service;
 
+import com.game.gameapi.dto.PowerDTO;
+import com.game.gameapi.mapper.PowerMapper;
 import com.game.gameapi.models.Power;
 import com.game.gameapi.repository.PowerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,20 @@ public class PowerService {
 
     public void delete(long id) {
         repository.deleteById(id);
+    }
+
+    public Page<Power> save(PowerDTO powerDTO) {
+        Power power = PowerMapper.INSTANCE.toModel(powerDTO);
+
+        try {
+            return trySavePower(power);
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
+
+    private Page<Power> trySavePower(Power power) {
+        return (Page<Power>) repository.save(power);
     }
 }

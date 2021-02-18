@@ -27,16 +27,15 @@ export class NewPowerComponent implements OnInit {
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
       icon_name: ['', [Validators.required]],
+      physical_attack:  [1, [Validators.required]],
+      magic_attack:  [1, [Validators.required]],
+      physical_defense:  [1, [Validators.required]],
+      magic_defense:  [1, [Validators.required]],
+      stamina_consumption:  [1, [Validators.required]],
+      magic_consumption:  [1, [Validators.required]],
+      duration_shifts:  [1, [Validators.required]],
+      shifts_off:  [1, [Validators.required]]
     });
-
-    this.powerForm.physical_attack = 1;
-    this.powerForm.magic_attack = 1;
-    this.powerForm.physical_defense = 1;
-    this.powerForm.magic_defense = 1;
-    this.powerForm.stamina_consumption = 1;
-    this.powerForm.magic_consumption = 1;
-    this.powerForm.duration_shifts = 1;
-    this.powerForm.shifts_off = 1;
   }
 
   close(){
@@ -45,24 +44,26 @@ export class NewPowerComponent implements OnInit {
   }
 
   physicalAttackMinus(){
-    if(this.powerForm.physical_attack > 1){
-      this.powerForm.physical_attack--;
+    console.log(this.powerForm.value.physical_attack)
+    if(this.powerForm.value.physical_attack > 1){
+      this.powerForm.value.physical_attack--;
       this.points++;
       this.updatePassiveEffects();
     }
   }
 
   physicalAttackPlus(){
+    console.log(this.powerForm.value.physical_attack)
     if(this.points > 0){
-      this.powerForm.physical_attack++;
+      this.powerForm.value.physical_attack++;
       this.points--;
       this.updatePassiveEffects();
     }
   }
 
   magicAttackMinus(){
-    if(this.powerForm.magic_attack > 1){
-      this.powerForm.magic_attack--;
+    if(this.powerForm.value.magic_attack > 1){
+      this.powerForm.value.magic_attack--;
       this.points++;
       this.updatePassiveEffects();
     }
@@ -70,15 +71,15 @@ export class NewPowerComponent implements OnInit {
 
   magicAttackPlus(){
     if(this.points > 0){
-      this.powerForm.magic_attack++;
+      this.powerForm.value.magic_attack++;
       this.points--;
       this.updatePassiveEffects();
     }
   }
 
   physicalDefenseMinus(){
-    if(this.powerForm.physical_defense > 1){
-      this.powerForm.physical_defense--;
+    if(this.powerForm.value.physical_defense > 1){
+      this.powerForm.value.physical_defense--;
       this.points++;
       this.updatePassiveEffects();
     }
@@ -86,15 +87,15 @@ export class NewPowerComponent implements OnInit {
 
   physicalDefensePlus(){
     if(this.points > 0){
-      this.powerForm.physical_defense++;
+      this.powerForm.value.physical_defense++;
       this.points--;
       this.updatePassiveEffects();
     }
   }
 
   magicDefenseMinus(){
-    if(this.powerForm.magic_defense > 1){
-      this.powerForm.magic_defense--;
+    if(this.powerForm.value.magic_defense > 1){
+      this.powerForm.value.magic_defense--;
       this.points++;
       this.updatePassiveEffects();
     }
@@ -102,15 +103,15 @@ export class NewPowerComponent implements OnInit {
 
   magicDefensePlus(){
     if(this.points > 0){
-      this.powerForm.magic_defense++;
+      this.powerForm.value.magic_defense++;
       this.points--;
       this.updatePassiveEffects();
     }
   }
 
   durationShiftsMinus(){
-    if(this.powerForm.duration_shifts > 1){
-      this.powerForm.duration_shifts--;
+    if(this.powerForm.value.duration_shifts > 1){
+      this.powerForm.value.duration_shifts--;
       this.points++;
       this.updatePassiveEffects();
     }
@@ -118,7 +119,7 @@ export class NewPowerComponent implements OnInit {
 
   durationShiftsPlus(){
     if(this.points > 0){
-      this.powerForm.duration_shifts++;
+      this.powerForm.value.duration_shifts++;
       this.points--;
       this.updatePassiveEffects();
     }
@@ -131,27 +132,27 @@ export class NewPowerComponent implements OnInit {
   }
 
   updateShiftsOff(){
-    this.powerForm.shifts_off = Math.ceil(this.powerForm.duration_shifts * 
-    ((this.powerForm.physical_attack + this.powerForm.magic_attack +
-      this.powerForm.physical_defense + this.powerForm.magic_defense) * .1));
+    this.powerForm.value.shifts_off = Math.ceil(this.powerForm.value.duration_shifts * 
+    ((this.powerForm.value.physical_attack + this.powerForm.value.magic_attack +
+      this.powerForm.value.physical_defense + this.powerForm.value.magic_defense) * .1));
   }
 
   updateStaminaConsumption(){
-    this.powerForm.stamina_consumption = this.powerForm.duration_shifts *
-    (10 * (this.powerForm.physical_attack + this.powerForm.physical_defense) +
-    (this.powerForm.magic_attack +  this.powerForm.magic_defense));
+    this.powerForm.value.stamina_consumption = this.powerForm.value.duration_shifts *
+    (10 * (this.powerForm.value.physical_attack + this.powerForm.value.physical_defense) +
+    (this.powerForm.value.magic_attack +  this.powerForm.value.magic_defense));
   }
 
   updateMagicConsumption(){
-    this.powerForm.magic_consumption = this.powerForm.duration_shifts *
-    (10 * (this.powerForm.magic_attack +  this.powerForm.magic_defense) +
-    (this.powerForm.physical_attack + this.powerForm.physical_defense));
+    this.powerForm.value.magic_consumption = this.powerForm.value.duration_shifts *
+    (10 * (this.powerForm.value.magic_attack +  this.powerForm.value.magic_defense) +
+    (this.powerForm.value.physical_attack + this.powerForm.value.physical_defense));
   }
 
   save(){
     this.service.post(this.powerForm.value).subscribe(result => {});
-    this.dialogRef.close(true);
-    this.powerForm.reset();
-    window.location.reload();
+    // this.dialogRef.close(true);
+    // this.powerForm.reset();
+    // window.location.reload();
   }
 }

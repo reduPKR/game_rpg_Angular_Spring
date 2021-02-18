@@ -25,7 +25,6 @@ export class PowerService {
   }
 
   public post(power: any){
-    console.log(power)
     return this.httpClient.post<any>(this.apiUrl, power, this.httpOptions);
   }
 }
