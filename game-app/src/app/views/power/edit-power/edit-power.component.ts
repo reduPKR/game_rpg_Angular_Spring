@@ -153,7 +153,7 @@ export class EditPowerComponent implements OnInit {
   }
 
   save(){
-    this.service.put(this.powerForm.value).subscribe(result => {});
+    this.service.post(this.powerForm.value).subscribe(result => {});
     this.dialogRef.close(true);
     this.powerForm.reset();
     window.location.reload();
