@@ -18,6 +18,7 @@ import { HomeComponent } from './views/home/home.component';
 import { CharacterComponent } from './views/character/character.component';
 import { PowerComponent } from './views/power/power.component';
 import { NewPowerComponent } from './views/power/new-power/new-power.component';
+import { EditPowerComponent } from './views/power/edit-power/edit-power.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewPowerComponent } from './views/power/new-power/new-power.component';
     HomeComponent,
     CharacterComponent,
     PowerComponent,
-    NewPowerComponent
+    NewPowerComponent,
+    EditPowerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Power } from 'src/app/shared/model/power.model';
 import { PowerService } from 'src/app/shared/service/power.service';
 
 @Component({
-  selector: 'app-new-power',
-  templateUrl: './new-power.component.html',
-  styleUrls: ['./new-power.component.css']
+  selector: 'app-edit-power',
+  templateUrl: './edit-power.component.html',
+  styleUrls: ['./edit-power.component.css']
 })
-export class NewPowerComponent implements OnInit {
+export class EditPowerComponent implements OnInit {
   public powerForm: any;
   public points: number = 50;
 
   constructor(
-    public dialogRef: MatDialogRef<NewPowerComponent>,
+    public dialogRef: MatDialogRef<EditPowerComponent>,
     private fb: FormBuilder,
-    private service: PowerService
+    private service: PowerService,
+    @Inject(MAT_DIALOG_DATA) public power: Power
   ) { }
 
   ngOnInit(): void {
@@ -24,17 +26,18 @@ export class NewPowerComponent implements OnInit {
 
   initializerForm(){
     this.powerForm = this.fb.group({
-      name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      icon_name: ['', [Validators.required]],
-      physical_attack:  [1, [Validators.required]],
-      magic_attack:  [1, [Validators.required]],
-      physical_defense:  [1, [Validators.required]],
-      magic_defense:  [1, [Validators.required]],
-      stamina_consumption:  [1, [Validators.required]],
-      magic_consumption:  [1, [Validators.required]],
-      duration_shifts:  [1, [Validators.required]],
-      shifts_off:  [1, [Validators.required]]
+      id: this.power.id,
+      name: [this.power.name, [Validators.required]],
+      description: [this.power.description, [Validators.required]],
+      icon_name: [this.power.icon_name, [Validators.required]],
+      physical_attack:  this.power.physical_attack,
+      magic_attack:  this.power.magic_attack,
+      physical_defense:  this.power.physical_defense,
+      magic_defense:  this.power.magic_defense,
+      stamina_consumption:  this.power.stamina_consumption,
+      magic_consumption:  this.power.magic_consumption,
+      duration_shifts:  this.power.duration_shifts,
+      shifts_off:  this.power.shifts_off
     });
   }
 
@@ -150,7 +153,7 @@ export class NewPowerComponent implements OnInit {
   }
 
   save(){
-    this.service.post(this.powerForm.value).subscribe(result => {});
+    this.service.put(this.powerForm.value).subscribe(result => {});
     this.dialogRef.close(true);
     this.powerForm.reset();
     window.location.reload();

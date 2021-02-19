@@ -27,6 +27,10 @@ export class PowerService {
   public post(power: any){
     return this.httpClient.post<any>(this.apiUrl, power, this.httpOptions);
   }
+
+  public put(power: any){
+    return this.httpClient.put<any>(this.apiUrl, power, this.httpOptions);
+  }
 }
 
 

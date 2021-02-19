@@ -7,7 +7,7 @@
         <tr *ngFor="let item of powers_list">
             <td>{{item.name}}</td>
             <td style="width: 20%;">
-                <button class="btn-edit">
+                <button class="btn-edit" (click)="edit(item)">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <button class="btn-delete" (click)="delete(item.id)">
