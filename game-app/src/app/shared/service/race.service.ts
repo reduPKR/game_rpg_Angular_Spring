@@ -12,14 +12,14 @@ export class RaceService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+  };
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<responsePageable>{
     return this.httpClient.get<responsePageable>(this.apiUrl);
   }
 
-  post(race: any): Observable<responsePageable>{
+  post(race: any){
     return this.httpClient.post<any>(this.apiUrl, race, this.httpOptions);
   }
 }

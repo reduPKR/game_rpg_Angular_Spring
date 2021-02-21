@@ -25,19 +25,20 @@ export class NewRaceComponent implements OnInit {
   initializerForm(){
     this.raceForm = this.fb.group({
       name: ['', [Validators.required]],
-      skill_points:{
-        health: 1,
-        magic: 1,
-        stamina: 1,
-        health_regeneration: 1,
-        magic_regeneration: 1,
-        stamina_regeneration: 1,
-        physical_attack: 1,
-        magic_attack: 1,
-        physical_defense: 1,
-        magic_defense: 1,
-        ability: 1
-      }
+      description: ['', [Validators.required]],
+      // skill_points:{
+      //   health: 1,
+      //   magic: 1,
+      //   stamina: 1,
+      //   health_regeneration: 1,
+      //   magic_regeneration: 1,
+      //   stamina_regeneration: 1,
+      //   physical_attack: 1,
+      //   magic_attack: 1,
+      //   physical_defense: 1,
+      //   magic_defense: 1,
+      //   ability: 1
+      // }
     });
   }
 
@@ -201,9 +202,9 @@ export class NewRaceComponent implements OnInit {
   }
 
   save(){
-    this.service.post(this.raceForm.vaalue).subscribe(result => {});
-    this.dialogRef.close(true);
-    this.raceForm.reset();
-    window.location.reload();
+    this.service.post(this.raceForm.value).subscribe(result => {});
+    // this.dialogRef.close(true);
+    // this.raceForm.reset();
+    // window.location.reload();
   }
 }
