@@ -20,6 +20,7 @@ import { PowerComponent } from './views/power/power.component';
 import { NewPowerComponent } from './views/power/new-power/new-power.component';
 import { EditPowerComponent } from './views/power/edit-power/edit-power.component';
 import { RaceComponent } from './views/race/race.component';
+import { NewRaceComponent } from './views/race/new-race/new-race.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RaceComponent } from './views/race/race.component';
     PowerComponent,
     NewPowerComponent,
     EditPowerComponent,
-    RaceComponent
+    RaceComponent,
+    NewRaceComponent
   ],
   imports: [
     BrowserModule,

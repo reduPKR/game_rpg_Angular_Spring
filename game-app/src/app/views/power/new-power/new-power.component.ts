@@ -44,7 +44,6 @@ export class NewPowerComponent implements OnInit {
   }
 
   physicalAttackMinus(){
-    console.log(this.powerForm.value.physical_attack)
     if(this.powerForm.value.physical_attack > 1){
       this.powerForm.value.physical_attack--;
       this.points++;
@@ -53,7 +52,6 @@ export class NewPowerComponent implements OnInit {
   }
 
   physicalAttackPlus(){
-    console.log(this.powerForm.value.physical_attack)
     if(this.points > 0){
       this.powerForm.value.physical_attack++;
       this.points--;

@@ -1,0 +1,136 @@
+<div class="titulo">
+    <h1 mat-dialog-title>Cadastrar nova raça</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-todo" [formGroup]="raceForm">   
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+            <input type="text" class="form-control" formControlName="name" name="name">
+        </div>
+    </form>
+
+    <div class="points-register">
+        <label style="margin-left: 40%; margin-bottom: 10px;">Pontos disponiveis: {{points}}</label>
+
+        <div class="row mb-3">
+            <div class="col-sm">
+                <button (click)="healthMinus()" class="points-button">
+                    <mat-icon style="font-size: 20px;">remove</mat-icon>
+                </button>
+                    HP: {{raceForm.value.skill_points.health * 15}}
+                <button (click)="healthPlus()" class="points-button">
+                    <mat-icon style="font-size: 20px;">add</mat-icon>
+                </button>
+            </div>
+            <div class="col-sm">
+                <button (click)="magicMinus()" class="points-button">
+                    <mat-icon style="font-size: 20px;">remove</mat-icon>
+                </button>
+                    Mana: {{raceForm.value.skill_points.magic * 25}}
+                <button (click)="magicPlus()" class="points-button">
+                    <mat-icon style="font-size: 20px;">add</mat-icon>
+                </button>
+            </div>
+            <div class="col-sm">
+                <button (click)="staminaMinus()" class="points-button">
+                    <mat-icon style="font-size: 20px;">remove</mat-icon>
+                </button>
+                    Stamina: {{raceForm.value.skill_points.stamina * 25}}
+                <button (click)="staminaPlus()" class="points-button">
+                    <mat-icon style="font-size: 20px;">add</mat-icon>
+                </button>
+            </div>
+        </div>        
+        
+        <div class="mb-3">
+            Regeneração HP:
+            <button (click)="healthRegenerationMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.health_regeneration * 8}}
+            <button (click)="healthRegenerationPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+        <div class="mb-3">
+            Regeneração mana:
+            <button (click)="magicRegenerationMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.magic_regeneration * 13}}
+            <button (click)="magicRegenerationPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+        <div class="mb-3">
+            Regeneração stamina:
+            <button (click)="staminaRegenerationMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.stamina_regeneration * 13}}
+            <button (click)="staminaRegenerationPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Pontos de ataque fisico: </label>
+            <button (click)="physicalAttackMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.physical_attack}}
+            <button (click)="physicalAttackPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Pontos de ataque magico: </label>
+            <button (click)="magicAttackMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.magic_attack}}
+            <button (click)="magicAttackPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Pontos de defesa fisico: </label>
+            <button (click)="physicalDefenseMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.physical_defense}}
+            <button (click)="physicalDefensePlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Pontos de defesa magica: </label>
+            <button (click)="magicDefenseMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.magic_defense}}
+            <button (click)="magicDefensePlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+
+        <div class="mb-3">
+            <label>Habilidade: </label>
+            <button (click)="abilityMinus()" class="points-button">
+                <mat-icon style="font-size: 20px;">remove</mat-icon>
+            </button>
+                {{raceForm.value.skill_points.ability}}
+            <button (click)="abilityPlus()" class="points-button">
+                <mat-icon style="font-size: 20px;">add</mat-icon>
+            </button>
+        </div>
+    </div>
+
+</div>
+<div mat-dialog-actions>
+    <button style="width: 47%; background-color: #f77e0c;" mat-button (click)="close()">Cancelar</button>
+    <button style="width: 47%;" mat-raised-button color="primary" (click)="save()">Adicionar</button>
+</div>
