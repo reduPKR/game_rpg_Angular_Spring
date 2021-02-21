@@ -34,6 +34,7 @@ public class SkillPoints {
     private int ability;
 
     @OneToOne(mappedBy = "skill_points")
+    @JoinColumn(name = "skill_points_id", referencedColumnName = "id")
     private Race race;
 
     /*---------------------------------------------------------------------*/

@@ -1,7 +1,11 @@
 package com.game.gameapi.models;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
+@Entity
+@Builder
 public class Race {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,7 +14,6 @@ public class Race {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     @OneToOne(cascade = CascadeType.ALL)
     private SkillPoints skill_points;
 
