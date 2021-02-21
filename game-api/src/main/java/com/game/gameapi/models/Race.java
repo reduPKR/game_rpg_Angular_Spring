@@ -14,6 +14,9 @@ public class Race {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String description;
+
     @OneToOne(cascade = CascadeType.ALL)
     private SkillPoints skill_points;
 

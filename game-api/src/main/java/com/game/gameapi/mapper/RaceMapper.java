@@ -9,6 +9,6 @@ import org.mapstruct.factory.Mappers;
 public interface RaceMapper {
     RaceMapper INSTANCE = Mappers.getMapper(RaceMapper.class);
 
-    Race toMode(RaceDTO raceDTO);
+    Race toModel(RaceDTO raceDTO);
     RaceDTO toDTO(Race race);
 }

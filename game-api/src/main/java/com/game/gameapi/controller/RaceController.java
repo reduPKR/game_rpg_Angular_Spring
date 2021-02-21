@@ -1,5 +1,6 @@
 package com.game.gameapi.controller;
 
+import com.game.gameapi.dto.RaceDTO;
 import com.game.gameapi.models.Race;
 import com.game.gameapi.service.RaceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +10,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -30,5 +30,11 @@ public class RaceController {
         }else{
             return new ResponseEntity<Page<Race>>(racePage, HttpStatus.OK);
         }
+    }
+
+    @PostMapping
+    public ResponseEntity<Page<Race>> save(@Valid @RequestBody RaceDTO raceDTO){
+        Page<Race> racePage = service.save(raceDTO);
+        return new ResponseEntity<Page<Race>>(racePage, HttpStatus.CREATED);
     }
 }
