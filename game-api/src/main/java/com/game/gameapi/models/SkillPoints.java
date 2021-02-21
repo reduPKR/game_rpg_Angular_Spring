@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class SkillPoints {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(nullable = false)
     private int health;
     @Column(nullable = false)
@@ -33,6 +33,9 @@ public class SkillPoints {
     @Column(nullable = false)
     private int ability;
 
+    @OneToOne(mappedBy = "skill_points")
+    private Race race;
+
     /*---------------------------------------------------------------------*/
 
     public SkillPoints() {
@@ -52,7 +55,7 @@ public class SkillPoints {
         this.ability = ability;
     }
 
-    public SkillPoints(int id, int health, int magic, int stamina, int health_regeneration, int magic_regeneration, int stamina_regeneration, int physical_attack, int magic_attack, int physical_defense, int magic_defense, int ability) {
+    public SkillPoints(Long id, int health, int magic, int stamina, int health_regeneration, int magic_regeneration, int stamina_regeneration, int physical_attack, int magic_attack, int physical_defense, int magic_defense, int ability) {
         this.id = id;
         this.health = health;
         this.magic = magic;
@@ -67,11 +70,42 @@ public class SkillPoints {
         this.ability = ability;
     }
 
-    public int getId() {
+    public SkillPoints(int health, int magic, int stamina, int health_regeneration, int magic_regeneration, int stamina_regeneration, int physical_attack, int magic_attack, int physical_defense, int magic_defense, int ability, Race race) {
+        this.health = health;
+        this.magic = magic;
+        this.stamina = stamina;
+        this.health_regeneration = health_regeneration;
+        this.magic_regeneration = magic_regeneration;
+        this.stamina_regeneration = stamina_regeneration;
+        this.physical_attack = physical_attack;
+        this.magic_attack = magic_attack;
+        this.physical_defense = physical_defense;
+        this.magic_defense = magic_defense;
+        this.ability = ability;
+        this.race = race;
+    }
+
+    public SkillPoints(Long id, int health, int magic, int stamina, int health_regeneration, int magic_regeneration, int stamina_regeneration, int physical_attack, int magic_attack, int physical_defense, int magic_defense, int ability, Race race) {
+        this.id = id;
+        this.health = health;
+        this.magic = magic;
+        this.stamina = stamina;
+        this.health_regeneration = health_regeneration;
+        this.magic_regeneration = magic_regeneration;
+        this.stamina_regeneration = stamina_regeneration;
+        this.physical_attack = physical_attack;
+        this.magic_attack = magic_attack;
+        this.physical_defense = physical_defense;
+        this.magic_defense = magic_defense;
+        this.ability = ability;
+        this.race = race;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -161,5 +195,13 @@ public class SkillPoints {
 
     public void setAbility(int ability) {
         this.ability = ability;
+    }
+
+    public Race getRace() {
+        return race;
+    }
+
+    public void setRace(Race race) {
+        this.race = race;
     }
 }

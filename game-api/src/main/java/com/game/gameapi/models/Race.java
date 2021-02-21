@@ -1,19 +1,17 @@
 package com.game.gameapi.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 public class Race {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private SkillPoints skill_points;
 
     public Race() {
@@ -24,17 +22,17 @@ public class Race {
         this.skill_points = skill_points;
     }
 
-    public Race(int id, String name, SkillPoints skill_points) {
+    public Race(Long id, String name, SkillPoints skill_points) {
         this.id = id;
         this.name = name;
         this.skill_points = skill_points;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
