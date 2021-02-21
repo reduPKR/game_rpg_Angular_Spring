@@ -1,0 +1,60 @@
+table {
+    width: 100%;
+}
+
+.padding_table{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 40px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #797979;
+}
+
+tr:hover{
+    background-color:#cfcfcf;
+}
+
+.btn-edit{
+    margin-right: 15px;
+    background-color: #367ace;
+    color: #dddddd;
+}
+
+.btn-edit:hover{
+    width: 50px;
+    height: 50px;
+    background-color: #0a64d1;
+    color: #dddddd;
+}
+
+.btn-delete{
+    background-color: #b63030;
+    color: #dddddd;
+}
+
+.btn-delete:hover{
+    width: 50px;
+    height: 50px;
+    background-color: #d81717;
+    color: #dddddd;
+}
+
+.btn-add{
+    right: 10px;
+    bottom: 5px;
+    left: auto;
+    position: absolute;
+    background-color: #0a64d1;
+}
+
+.text{
+    margin-left: 25%;
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #e45514;
+}
