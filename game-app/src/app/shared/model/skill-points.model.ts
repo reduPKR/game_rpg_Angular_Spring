@@ -1,4 +1,5 @@
 export class SkillPoints{
+    id: number = 0;
     health: Number = 0;
     magic: Number = 0;
     stamina: Number = 0;
