@@ -26,4 +26,9 @@ export class AppComponent{
     this.title = "Personagem";
     this.router.navigate(["character"]);
   }
+
+  goToRace(){
+    this.title = "Raças";
+    this.router.navigate(["race"]);
+  }
 }

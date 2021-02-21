@@ -1,0 +1,25 @@
+<div class="padding_table">
+    <table *ngIf="list_breeds.length > 0">
+        <thead>
+            <th >Nome</th>
+            <th >Opções</th>
+        </thead>
+        <tr *ngFor="let item of list_breeds">
+            <td>{{item.name}}</td>
+            <td style="width: 20%;">
+                <button class="btn-edit" (click)="edit(item)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button class="btn-delete" (click)="delete(item.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>             
+            </td>
+        </tr>
+    </table>
+    <div *ngIf="list_breeds.length == 0">
+        <label class="text">Nenhuma raça cadastrada</label>
+    </div>
+    <button mat-fab class="btn-add" (click)="newRace()">
+        <mat-icon mat-icon>add</mat-icon>
+    </button>
+</div>
