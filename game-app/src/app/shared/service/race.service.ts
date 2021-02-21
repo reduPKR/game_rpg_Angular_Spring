@@ -18,4 +18,8 @@ export class RaceService {
   getAll(): Observable<responsePageable>{
     return this.httpClient.get<responsePageable>(this.apiUrl);
   }
+
+  post(race: any): Observable<responsePageable>{
+    return this.httpClient.post<any>(this.apiUrl, race, this.httpOptions);
+  }
 }

@@ -199,4 +199,11 @@ export class NewRaceComponent implements OnInit {
       this.points--;
     }
   }
+
+  save(){
+    this.service.post(this.raceForm.vaalue).subscribe(result => {});
+    this.dialogRef.close(true);
+    this.raceForm.reset();
+    window.location.reload();
+  }
 }
