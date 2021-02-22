@@ -3,7 +3,6 @@ package com.game.gameapi.dto;
 import com.game.gameapi.models.SkillPoints;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class RaceDTO {

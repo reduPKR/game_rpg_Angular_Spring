@@ -33,7 +33,7 @@ public class RaceController {
     }
 
     @PostMapping
-    public ResponseEntity<Page<Race>> save(@RequestBody @Valid RaceDTO raceDTO){
+    public ResponseEntity<Page<Race>> save(@RequestBody RaceDTO raceDTO){
         Page<Race> racePage = service.save(raceDTO);
         return new ResponseEntity<Page<Race>>(racePage, HttpStatus.CREATED);
     }

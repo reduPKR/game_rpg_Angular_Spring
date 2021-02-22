@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Race } from '../model/race.module';
 import { responsePageable } from '../model/responsePageable.model';
 
 @Injectable({
@@ -16,10 +17,10 @@ export class RaceService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<responsePageable>{
-    return this.httpClient.get<responsePageable>(this.apiUrl);
+    return this.httpClient.get<responsePageable>(this.apiUrl)
   }
 
-  post(race: any){
+  post(race: Race){
     return this.httpClient.post<any>(this.apiUrl, race, this.httpOptions);
   }
 }

@@ -33,8 +33,7 @@ public class SkillPoints {
     @Column(nullable = false)
     private int ability;
 
-    @OneToOne(mappedBy = "skill_points")
-    @JoinColumn(name = "skill_points_id", referencedColumnName = "id")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "skill_points", fetch = FetchType.LAZY)
     private Race race;
 
     /*---------------------------------------------------------------------*/

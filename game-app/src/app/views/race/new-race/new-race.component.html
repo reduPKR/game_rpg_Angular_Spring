@@ -14,7 +14,7 @@
         </div>
     </form>
 
-    <!-- <div class="points-register">
+    <div class="points-register">
         <label style="margin-left: 40%; margin-bottom: 10px;">Pontos disponiveis: {{points}}</label>
 
         <div class="row mb-3">
@@ -22,7 +22,7 @@
                 <button (click)="healthMinus()" class="points-button">
                     <mat-icon style="font-size: 20px;">remove</mat-icon>
                 </button>
-                    HP: {{raceForm.value.skill_points.health * 15}}
+                    HP: {{skillForm.value.health * 15}}
                 <button (click)="healthPlus()" class="points-button">
                     <mat-icon style="font-size: 20px;">add</mat-icon>
                 </button>
@@ -31,7 +31,7 @@
                 <button (click)="magicMinus()" class="points-button">
                     <mat-icon style="font-size: 20px;">remove</mat-icon>
                 </button>
-                    Mana: {{raceForm.value.skill_points.magic * 25}}
+                    Mana: {{skillForm.value.magic * 25}}
                 <button (click)="magicPlus()" class="points-button">
                     <mat-icon style="font-size: 20px;">add</mat-icon>
                 </button>
@@ -40,7 +40,7 @@
                 <button (click)="staminaMinus()" class="points-button">
                     <mat-icon style="font-size: 20px;">remove</mat-icon>
                 </button>
-                    Stamina: {{raceForm.value.skill_points.stamina * 25}}
+                    Stamina: {{skillForm.value.stamina * 25}}
                 <button (click)="staminaPlus()" class="points-button">
                     <mat-icon style="font-size: 20px;">add</mat-icon>
                 </button>
@@ -52,7 +52,7 @@
             <button (click)="healthRegenerationMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.health_regeneration * 8}}
+                {{skillForm.value.health_regeneration * 8}}
             <button (click)="healthRegenerationPlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
@@ -62,7 +62,7 @@
             <button (click)="magicRegenerationMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.magic_regeneration * 13}}
+                {{skillForm.value.magic_regeneration * 13}}
             <button (click)="magicRegenerationPlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
@@ -72,7 +72,7 @@
             <button (click)="staminaRegenerationMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.stamina_regeneration * 13}}
+                {{skillForm.value.stamina_regeneration * 13}}
             <button (click)="staminaRegenerationPlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
@@ -83,7 +83,7 @@
             <button (click)="physicalAttackMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.physical_attack}}
+                {{skillForm.value.physical_attack}}
             <button (click)="physicalAttackPlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
@@ -94,7 +94,7 @@
             <button (click)="magicAttackMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.magic_attack}}
+                {{skillForm.value.magic_attack}}
             <button (click)="magicAttackPlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
@@ -105,7 +105,7 @@
             <button (click)="physicalDefenseMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.physical_defense}}
+                {{skillForm.value.physical_defense}}
             <button (click)="physicalDefensePlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
@@ -116,7 +116,7 @@
             <button (click)="magicDefenseMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.magic_defense}}
+                {{skillForm.value.magic_defense}}
             <button (click)="magicDefensePlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
@@ -127,12 +127,12 @@
             <button (click)="abilityMinus()" class="points-button">
                 <mat-icon style="font-size: 20px;">remove</mat-icon>
             </button>
-                {{raceForm.value.skill_points.ability}}
+                {{skillForm.value.ability}}
             <button (click)="abilityPlus()" class="points-button">
                 <mat-icon style="font-size: 20px;">add</mat-icon>
             </button>
         </div>
-    </div> -->
+    </div>
 
 </div>
 <div mat-dialog-actions>
