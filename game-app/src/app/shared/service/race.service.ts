@@ -23,4 +23,8 @@ export class RaceService {
   post(race: Race){
     return this.httpClient.post<any>(this.apiUrl, race, this.httpOptions);
   }
+
+  delete(id: any){
+    return this.httpClient.delete<any>(this.apiUrl+"/"+id);
+  }
 }

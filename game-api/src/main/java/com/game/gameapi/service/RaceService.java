@@ -2,11 +2,13 @@ package com.game.gameapi.service;
 
 import com.game.gameapi.dto.RaceDTO;
 import com.game.gameapi.mapper.RaceMapper;
+import com.game.gameapi.models.Power;
 import com.game.gameapi.models.Race;
 import com.game.gameapi.repository.RaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -33,4 +35,7 @@ public class RaceService {
         return (Page<Race>) repository.save(race);
     }
 
+    public void delete(long id) {
+        repository.deleteById(id);
+    }
 }

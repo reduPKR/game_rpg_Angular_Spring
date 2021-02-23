@@ -20,7 +20,7 @@ public class Race {
     private String description;
 
     @JsonIgnore
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "skill_points_id", referencedColumnName = "id")
     private SkillPoints skill_points;
 

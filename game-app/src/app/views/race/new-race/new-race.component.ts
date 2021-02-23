@@ -10,7 +10,6 @@ import { RaceService } from 'src/app/shared/service/race.service';
 })
 export class NewRaceComponent implements OnInit {
   public raceForm: any;
-  public skillForm: any;
   public points: number = 100;
 
   constructor(
@@ -26,21 +25,20 @@ export class NewRaceComponent implements OnInit {
   initializerForm(){
     this.raceForm = this.fb.group({
       name: ['', [Validators.required]],
-      description: ['', [Validators.required]]
-    });
-
-    this.skillForm = this.fb.group({
-      health: 1,
-      magic: 1,
-      stamina: 1,
-      health_regeneration: 1,
-      magic_regeneration: 1,
-      stamina_regeneration: 1,
-      physical_attack: 1,
-      magic_attack: 1,
-      physical_defense: 1,
-      magic_defense: 1,
-      ability: 1
+      description: ['', [Validators.required]],
+      skill_points: {
+        health: 1,
+        magic: 1,
+        stamina: 1,
+        health_regeneration: 1,
+        magic_regeneration: 1,
+        stamina_regeneration: 1,
+        physical_attack: 1,
+        magic_attack: 1,
+        physical_defense: 1,
+        magic_defense: 1,
+        ability: 1
+      }
     });
   }
 

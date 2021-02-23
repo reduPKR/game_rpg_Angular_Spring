@@ -44,7 +44,8 @@ export class RaceComponent implements OnInit {
   }
 
   delete(id: any){
-    
+    this.service.delete(id).subscribe(result => {});
+    window.location.reload();
   }
 
 }

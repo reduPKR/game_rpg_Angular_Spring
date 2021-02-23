@@ -37,4 +37,9 @@ public class RaceController {
         Page<Race> racePage = service.save(raceDTO);
         return new ResponseEntity<Page<Race>>(racePage, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") long id){
+        service.delete(id);
+    }
 }
