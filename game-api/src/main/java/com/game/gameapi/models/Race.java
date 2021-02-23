@@ -1,5 +1,6 @@
 package com.game.gameapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Builder;
 
@@ -18,7 +19,8 @@ public class Race {
     @Column(nullable = false)
     private String description;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JsonIgnore
+    @OneToOne
     @JoinColumn(name = "skill_points_id", referencedColumnName = "id")
     private SkillPoints skill_points;
 

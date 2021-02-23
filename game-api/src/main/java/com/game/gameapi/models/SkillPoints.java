@@ -33,7 +33,7 @@ public class SkillPoints {
     @Column(nullable = false)
     private int ability;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "skill_points", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "skill_points")
     private Race race;
 
     /*---------------------------------------------------------------------*/
