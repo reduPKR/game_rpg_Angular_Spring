@@ -1,5 +1,7 @@
 # Game RPG  
 Sistema para criar personagem, raças, equipamentos e poderes para rpg.  
+
+# Projeto pausado 28/02/2021 -> 
   
 ## Rotas  
 http://localhost:4200/power  
